@@ -1,6 +1,6 @@
-// TO DO: 
+//  
 // 
-/// Have enemies shoot projectiles from a distance and do damage to the player 
+///  
 // 
 // 
 // 
@@ -153,9 +153,9 @@ player.image.onload = function() {
 };
 
 var tileImage = new Image();
-tileImage.src = '../flagstone_floor_preview_0.png';
+tileImage.src = './flagstone_floor_preview_0.png';
 var tileImage2 = new Image();
-tileImage2.src = '../Minecraft/Wood.PNG';
+tileImage2.src = './Minecraft/Wood.PNG';
 
 this.draw = function() {
     var img = Math.random() > 0.5 ? tileImage : tileImage2;  // Randomly choose a tile
@@ -187,9 +187,9 @@ function createEnemy(x, y, health, isStationary) {
     } else {
       var enemy = new ent();
       var enemyTypes = [
-        "../LPC imp/walk - sword shield.png",
-        "../golem-walk.png",
-        "../LPC imp/attack - pitchfork shield.png"
+        "./LPC imp/walk - sword shield.png",
+        "./golem-walk.png",
+        "./LPC imp/attack - pitchfork shield.png"
       ];
       var randomType = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
       enemy.sprite(randomType, 0, 0, 64, 64, x, y, 64, 64, 10);
@@ -201,7 +201,7 @@ function createEnemy(x, y, health, isStationary) {
 
 function createStationaryEnemy(x, y, health) {
     var enemy = new ent();
-    enemy.sprite("../custom1/Trunk.png", 0, 0, 64, 64, x, y, 64, 64, 20);
+    enemy.sprite("./custom1/Trunk.png", 0, 0, 64, 64, x, y, 64, 64, 20);
     enemy.load = true;
     enemy.health = 20000;
     enemy.isStationary = true;
@@ -263,7 +263,7 @@ setInterval(function() {
 // Attack logic
 var attack = false;
 var attackSprite = new Image();
-attackSprite.src = "../Orbs/Water Orb3.png";
+attackSprite.src = "./Orbs/Water Orb3.png";
 
 function attackEnemy() {
     enemies.forEach(function(enemy, index) {
@@ -356,7 +356,7 @@ var score = 0;
 // Load sound effects
 var shootSound = new Audio('shoot.mp3');
 var hitSound = new Audio('hit.mp3');
-var backgroundMusic = new Audio('../audio/awesomeness.wav');
+var backgroundMusic = new Audio('./audio/awesomeness.wav');
 
 // Play background music in a loop
 backgroundMusic.loop = true;

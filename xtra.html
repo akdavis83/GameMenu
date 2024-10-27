@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Xtra</title>
+  <link rel="icon" href="https://fav.farm/🌀" />
+
+<style>
+  canvas {
+  border: 1px solid black;
+  
+  margin: auto;
+  position:absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+</style>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+Use WSAD<br></br>This is the original game engine. The map is increased from 1,000,000 tiles to 3,000,000. The character speed is increased from 5 to 500 for teleport mode through the massive map. Just add enemies and ideas!
+
+<!-- partial -->
+  <script>
+
+    // shim layer with setTimeout fallback
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000/60);
+          };
+})()
+
+// Setup the canvas
+var canvas = document.createElement('canvas'),
+    ctx = canvas.getContext('2d');
+
+canvas.width = 1250;
+canvas.height = 600;
+
+document.body.appendChild(canvas);
+
+// Movement stuff
+
+var keys = {};
+
+window.addEventListener('keydown', function(e) {
+    keys[e.keyCode] = true;
+  e.preventDefault();
+    
+});
+window.addEventListener('keyup', function(e) {
+    delete keys[e.keyCode];
+});
+
+
+// Keeps the player in bounds
+var math = function() {
+  this.clamp = function(i, min, max) {
+    return Math.max(Math.min(i, max),min);
+  }
+}
+
+var Camera = function() {
+  this.camera = function(entity) {
+    this.x = (canvas.width / 2) - entity.x - 100;
+    this.y = (canvas.height / 2) - entity.y - 100;
+  }
+  
+  this.getPosition = function(entity) {
+    this.x = (canvas.width / 2) - entity.x;
+    this.y = (canvas.height / 2) - entity.y;
+  }
+}
+
+var ent = function() {
+    this.load = false;
+    this.imgX = 0;
+    
+    this.sprite = function(src, srcX, srcY, dtx, dty, x, y, width, height, speed) {
+            this.src = src;
+            this.srcX = srcX;
+            this.srcY = srcY;
+            this.dtx = dtx;
+            this.dty = dty;
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.speed = speed;
+         
+            this.image = new Image();
+            this.image.src = src;
+        
+    this.render = function() {
+        ctx.drawImage(this.image, this.srcX, this.srcY, this.dtx, this.dty, this.x, this.y, this.width, this.height); 
+      }
+    }
+    
+    this.update = function() {
+    }
+    
+    this.move = function() {
+        if(87 in keys) { // W 
+            this.spriteRoll(512, 8);
+            this.y -= this.speed;
+        }
+        
+        if(83 in keys) { // S
+            this.spriteRoll(640, 8);
+            this.y += this.speed;
+        }
+        
+        if(65 in keys) { // A
+            this.spriteRoll(576, 8);
+            this.x -= this.speed;
+        }
+        
+        if(68 in keys) { // D
+            this.spriteRoll(704, 8);
+            this.x += this.speed;
+        }
+        
+    }
+    
+    this.spriteRoll = function(srY, maxLength) {
+        this.srcY = srY;
+        this.imgX += 1;
+            
+        this.srcX = this.dtx * this.imgX;
+            
+        if (this.imgX >= maxLength) {
+            this.imgX = 0;   
+        }
+    }
+    
+    this.bounds = function() {
+    this.x = m.clamp(this.x, 0 - this.width/2 + 20, 90000 - this.width/2);
+    this.y = m.clamp(this.y, 0 - this.height/2 + 20, 90000 - this.height/2);
+  }
+}
+
+var player = new ent();
+              // src, srcX, srcY, dtx, dty, x, y, width, height, speed
+player.sprite("http://opengameart.org/sites/default/files/red_orc.png", 0, 640, 64, 64, 100, 100, 62, 62, 500);
+
+player.image.onload = function() {
+        player.load = true;   
+}
+
+var tiles = function() {
+  // Width and height of each tile
+  this.TILE_WIDTH = 30;
+  this.TILE_HEIGHT = 30;
+  
+  this.x = 0; 
+  this.y = 0;
+  this.width = 60;
+  this.height = 60;
+  
+  var rc = Math.floor((Math.random() * 200) + 0);
+  var gc = Math.floor((Math.random() * 200) + 0);
+  var bc = Math.floor((Math.random() * 200) + 0);
+  var ac = 1;
+  
+  // Draw the tile to the position (sx, sy)
+  this.draw = function() {
+    this.sx = 0;
+    this.sy = 0;
+    this.sx = this.x * this.TILE_WIDTH;
+    this.sy = this.y * this.TILE_HEIGHT;
+    
+    ctx.fillStyle = "rgba(" + rc + ", " + gc + ", " + bc + ", " + ac + ")";
+    ctx.fillRect(this.sx, this.sy, this.width, this.height);
+  }
+}
+
+var Map = function() {
+  // Rows (x), colums Y
+  this.ROWS = 3000;
+  this.COLS = 3000;
+  
+  this.tiles = this.ROWS * this.COLS;
+  this.tilesArray = [];
+  
+  this.map = function() {
+    // Creates 1000 Colums
+    for (var y = 0; y < this.COLS; y++) {
+      // Creates 1000 rows
+      for (var x = 0; x < this.ROWS; x++) {
+        // tilesArray[current tile position] = generate tile
+        this.tilesArray[y*this.COLS + x] = new tiles();
+        // Give it the x and y coords or the loops
+        this.tilesArray[y*this.COLS + x].x = x;
+        this.tilesArray[y*this.COLS + x].y = y;
+      }
+    }
+  }
+  
+  this.tiles = function(cam, tWidth, tHeight) {
+    for (var y = 0; y < this.COLS; y++) {
+      for (var x = 0; x < this.ROWS; x++) {
+        // Draw the map within the camera bounds
+        if (
+					this.tilesArray[y*this.COLS + x].x * tWidth < -cam.x + canvas.width &&
+					this.tilesArray[y*this.COLS + x].y * tHeight < -cam.y + canvas.width &&
+					(this.tilesArray[y*this.COLS + x].x + 1) * tWidth > -cam.x &&
+					(this.tilesArray[y*this.COLS + x].y + 1) * tHeight > -cam.y 
+				   ) 
+				{
+            // draw tile
+					this.tilesArray[y*this.COLS + x].draw();
+				}
+      }
+    }
+  }
+}
+
+var game = function() {
+    this.m = new Map();
+    this.t = new tiles();
+    this.cam  = new Camera();
+  
+    this.start = function() {
+      this.m.map();
+      this.cam.camera(player);
+      this.loop();   
+    }
+    
+    this.loop = function() {
+        this.update();
+        this.render();
+        requestAnimFrame(this.loop.bind(this));
+    }
+    
+    this.update = function() {
+      this.cam.getPosition(player);
+      player.bounds();
+      player.move();
+    }
+    
+    this.render = function() {
+     ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+     ctx.save();
+      
+     ctx.translate(this.cam.x, this.cam.y);
+     this.m.tiles(this.cam, this.t.TILE_WIDTH, this.t.TILE_HEIGHT);
+      if (player.load) {
+        player.render();
+      }
+      
+     ctx.restore();
+    }
+}
+
+var g = new game();
+var m = new math();
+g.start();
+  </script>
+
+</body>
+</html>

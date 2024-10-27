@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enhanced RPG</title>
+  <link rel="icon" href="https://fav.farm/🌀" />
+  <link rel="stylesheet" href="./style.css">
+
+  <style>
+    :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#gameCanvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hud {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.stats {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.controls {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.main-menu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.main-menu__nav a {
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.main-menu__nav a:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+  </style>
+</head>
+<body>
+  <div class="hud">
+    <div class="stats">
+      <div id="health-bar"></div>
+      <div id="level-info"></div>
+      <div id="power-ups"></div>
+    </div>
+    <div class="controls">
+      <p>This is a modified version of the original game engine</p>
+      <p>WSAD - Move | SPACE - Attack | P - Pause | SB - Special</p>
+      <p>Exit@Edges</p>
+    </div>
+  </div>
+  
+  <div class="main-menu">
+    <ul class="main-menu__nav">
+      <li><a href="gamemenu.html" data-title="Menu" id="play">M</a></li>
+      <li><a href="story.html" data-title="Story">S</a></li>
+      <li><a href="#" data-title="Pause" id="Pause">P</a></li>
+      <li><a href="xtra.html" data-title="Next">N</a></li>
+    </ul>
+  </div>
+
+  <canvas id="gameCanvas"></canvas>
+
+  <script src="./gameEngine.js"></script>
+  <script src="./player.js"></script>
+  <script src="./enemy.js"></script>
+  <script src="./powerups.js"></script>
+  <script src="./projectiles.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

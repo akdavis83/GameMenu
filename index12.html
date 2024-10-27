@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>RPG 12</title>
+  <link rel="icon" href="https://fav.farm/🌀" />
+
+  <link rel="stylesheet" href="./style.css">
+<style>
+  ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #ddd;
+  transition: 0.2s ease-in;
+}
+a:hover {
+  color: #fff;
+}
+
+.main-menu {
+  position: absolute;
+  
+  width: 300px;
+  transform: translate(-50%, -50%);
+}
+.main-menu__nav li ~ li {
+  margin-top: -1px;
+}
+.main-menu__nav a {
+  border: 2px solid #2bc0db;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  color: #2bc0db;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease-in;
+}
+.main-menu__nav a:after {
+  content: "";
+  display: block;
+  background-color: #fff;
+  width: 20px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(30deg) translateY(-50%);
+  transform-origin: top center;
+  opacity: 0;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+.main-menu__nav a:before {
+  content: attr(data-title);
+  color: #fff;
+  display: block;
+  position: absolute;
+  left: 100%;
+  transition: 0.3s ease-out;
+  opacity: 0;
+}
+.main-menu__nav a:hover {
+  background-color: #2bc0db;
+  color: #fff;
+  text-indent: -500px;
+}
+.main-menu__nav a:hover:after {
+  -webkit-animation-name: blik;
+          animation-name: blik;
+}
+.main-menu__nav a:hover:before {
+  opacity: 1;
+  left: 50%;
+  text-indent: 0;
+  transform: translateX(-50%);
+}
+
+@-webkit-keyframes blik {
+  0% {
+    opacity: 0;
+    left: 0;
+  }
+  50% {
+    opacity: 0.7;
+    left: 50%;
+  }
+  100% {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+@keyframes blik {
+  0% {
+    opacity: 0;
+    left: 0;
+  }
+  50% {
+    opacity: 0.7;
+    left: 50%;
+  }
+  100% {
+    opacity: 0;
+    left: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div style="z-index: 1000;">
+  <p style="z-index: 1000; position: absolute;top: 100px;">
+    WSAD-P-SB
+  </p>
+  <p style="z-index: 1000; position: absolute;top: 75px;">
+    Exit@Edges
+  </p>
+  <p style="z-index: 1000; position: absolute;top: 640px;">
+    Artic Freeze 1
+  </p>
+  <p id="scoreDisplay"></p>
+  <div class="main-menu" style="z-index: 1000; position: absolute; top: 220px; right: 800px; left: 120px;">
+    <ul class="main-menu__nav">
+      <li><a href="menu.html" data-title="Menu" id="play">M</a></li>
+      <li><a href="story.html" data-title="Story">S</a></li>
+      <li><a href="#" data-title="Pause" id="Pause">P</a></li>
+      <li><a href="index13.html" data-title="Next">N</a></li>
+    </ul>
+  </div>
+ </div>
+<br></br>
+
+<!-- partial -->
+  <script  src="./script11.js"></script>
+  <script>
+   // Add event listener for the Pause button click
+document.querySelector('#Pause').addEventListener('click', function() {
+    // Create a new keyboard event to simulate pressing the P key
+    var event = new KeyboardEvent('keydown', { keyCode: 80, which: 80 });
+    window.dispatchEvent(event);  // Dispatch the event to trigger the keydown handler
+});
+
+
+
+  </script>
+  
+  
+<script>
+  const { styler } = window.popmotion;
+const { tween } = window.popmotion;
+
+//const play = $('#play')[0];
+//const divStyler = styler(ball);
+
+$('#play').click(function (e) {
+  e.preventDefault();
+
+  $('.main-menu__nav > li').each(function (index) {
+    let element = $(this)[0];
+    let liStyler = styler(element);
+    /*tween({
+      to: 300,
+      duration: index * 100
+    }).start(styler(element).set('x'));*/
+
+    tween({
+      from: {
+        x: 0 },
+
+      to: {
+        x: 1000 },
+
+      duration: index * 200 }).
+    start(liStyler.set);
+
+
+  });
+
+  //tween({to: 300, duration: 500}).start(styler(play).set('x'));
+});
+</script>
+</body>
+</html>

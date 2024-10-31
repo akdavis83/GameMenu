@@ -153,9 +153,9 @@ window.requestAnimFrame = (function(){
   };
   
   var tileImage = new Image();
-  tileImage.src = '../set8_example_1.png';
+  tileImage.src = './set8_example_1.png';
   var tileImage2 = new Image();
-  tileImage2.src = '../set8_example_3.png';
+  tileImage2.src = './set8_example_3.png';
   
   this.draw = function() {
       var img = Math.random() > 0.5 ? tileImage : tileImage2;  // Randomly choose a tile
@@ -189,41 +189,41 @@ window.requestAnimFrame = (function(){
     // Randomly choose an enemy sprite
     var enemyTypes = [
         
-        "../custom1/oldAQUARIUS12.png",
-        "../custom1/oldAQUARIUS2.png",
-        "../custom1/oldARIES2.png",
-        "../custom1/oldCANCER12.png",
-        "../custom1/oldCANCER2.png",
-        "../custom1/oldCAPRICORN12.png",
-        "../custom1/oldFIGHTER12.png",
-        "../custom1/oldFIGHTER2.png",
-        "../custom1/oldGEMINI12.png",
-        "../custom1/oldGEMINI122.png",
-        "../custom1/oldLEO12.png",
-        "../custom1/oldGEMINI2.png",
-        "../custom1/oldLEO2.png",
-        "../custom1/oldLIBRA12.png",
-        "../custom1/oldLIBRA13.png",
-        "../custom1/oldLIBRA14.png",
-        "../custom1/oldLIBRA2.png",
-        "../custom1/oldLIBRA3.png",
-        "../custom1/oldPISCES12.png",
-        "../custom1/oldLIBRA4.png",
-        "../custom1/oldPISCES2.png",
-        "../custom1/oldSAGITTARIUS12.png",
-        "../custom1/oldSAGITTARIUS13.png",
-        "../custom1/oldSAGITTARIUS2.png",
-        "../custom1/oldSAGITTARIUS3.png",
-        "../custom1/oldSCORPIO12.png",
-        "../custom1/oldSCORPIO2.png",
-        "../custom1/oldSERPENTARIUS12.png",
-        "../custom1/oldSERPENTARIUS13.png",
-        "../custom1/oldSERPENTARIUS2.png",
-        "../custom1/oldTAURUS12.png",
-        "../custom1/oldSERPENTARIUS3.png",
-        "../custom1/oldTAURUS2.png",
-        "../custom1/oldVIRGO12.png",
-        "../custom1/oldVIRGO2.png",
+        "./custom1/oldAQUARIUS12.png",
+        "./custom1/oldAQUARIUS2.png",
+        "./custom1/oldARIES2.png",
+        "./custom1/oldCANCER12.png",
+        "./custom1/oldCANCER2.png",
+        "./custom1/oldCAPRICORN12.png",
+        "./custom1/oldFIGHTER12.png",
+        "./custom1/oldFIGHTER2.png",
+        "./custom1/oldGEMINI12.png",
+        "./custom1/oldGEMINI122.png",
+        "./custom1/oldLEO12.png",
+        "./custom1/oldGEMINI2.png",
+        "./custom1/oldLEO2.png",
+        "./custom1/oldLIBRA12.png",
+        "./custom1/oldLIBRA13.png",
+        "./custom1/oldLIBRA14.png",
+        "./custom1/oldLIBRA2.png",
+        "./custom1/oldLIBRA3.png",
+        "./custom1/oldPISCES12.png",
+        "./custom1/oldLIBRA4.png",
+        "./custom1/oldPISCES2.png",
+        "./custom1/oldSAGITTARIUS12.png",
+        "./custom1/oldSAGITTARIUS13.png",
+        "./custom1/oldSAGITTARIUS2.png",
+        "./custom1/oldSAGITTARIUS3.png",
+        "./custom1/oldSCORPIO12.png",
+        "./custom1/oldSCORPIO2.png",
+        "./custom1/oldSERPENTARIUS12.png",
+        "./custom1/oldSERPENTARIUS13.png",
+        "./custom1/oldSERPENTARIUS2.png",
+        "./custom1/oldTAURUS12.png",
+        "./custom1/oldSERPENTARIUS3.png",
+        "./custom1/oldTAURUS2.png",
+        "./custom1/oldVIRGO12.png",
+        "./custom1/oldVIRGO2.png",
         
         
         

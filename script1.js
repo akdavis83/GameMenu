@@ -1,9 +1,5 @@
 // TO DO: 
-// How can I make my game multiplayer? I use coolify, supabase, and firebase if needed for hosting and backend.
-/// How can I implement 3 multiplayer modes for my HTML game?
-// Multiplayer mode 1: cooperative- two players versus in game enemies
-// Mode 2: PVP- players against each other
-// Mode 3: Battle Royal-2 players against each other and against the enemies of the map
+// 
 
 // Shim layer with setTimeout fallback
 window.requestAnimFrame = (function(){

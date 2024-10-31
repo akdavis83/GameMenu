@@ -363,10 +363,8 @@ backgroundMusic.play();
 function attackEnemy() {
     enemies.forEach(function(enemy, index) {
         if (Math.abs(player.x - enemy.x) < 400 && Math.abs(player.y - enemy.y) < 400) {
-            shootSound.play();
             enemy.health -= playerStats.attack;
             if (enemy.health <= 0) {
-                hitSound.play(); // Play hit sound
                 enemies.splice(index, 1); // Remove enemy if health <= 0
                 playerHealth = Math.min(playerHealth + 100, 100000000000000000000000000000000000000);
                 playerStats.attack += 10;

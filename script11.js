@@ -153,9 +153,9 @@ window.requestAnimFrame = (function(){
   };
   
   var tileImage = new Image();
-  tileImage.src = '../custom1/Ice2.png';
+  tileImage.src = './custom1/Ice2.png';
   var tileImage2 = new Image();
-  tileImage2.src = '../custom1/fire2.jpg';
+  tileImage2.src = './custom1/fire2.jpg';
   
   this.draw = function() {
       var img = Math.random() > 0.5 ? tileImage : tileImage2;  // Randomly choose a tile
@@ -189,23 +189,23 @@ window.requestAnimFrame = (function(){
     // Randomly choose an enemy sprite
     var enemyTypes = [
         
-        "../custom1/Wolf.png",
-        "../custom1/ice_ant.png",
-        "../custom18/monster/demons/ice_devil.png",
-        "../custom18/monster/demons/ice_fiend.png",
-        "../custom18/monster/demons/blizzard_demon.png",
-        "../custom18/monster/nonliving/crystal_golem.png",
-        "../custom18/monster/nonliving/crystal_guardian.png",
-        "../custom18/monster/nonliving/orb_of_ice.png",
-        "../custom18/monster/nonliving/orb_of_ice.png",
-        "../custom18/monster/dragons/ice_dragon_new.png",
-        "../custom18/monster/dragons/quicksilver_dragon_new.png",
-        "../custom1/monster/ice_beast.png",
-        "../custom1/monster/abyss/apocalypse_crab.png",
-        "../custom1/monster/abyss/apocalypse_crab.png",
-        "../custom1/Glace.png",
-        "../custom1/Macrocat.png",
-        "../custom1/Monster.png",
+        "./custom1/Wolf.png",
+        "./custom1/ice_ant.png",
+        "./custom18/monster/demons/ice_devil.png",
+        "./custom18/monster/demons/ice_fiend.png",
+        "./custom18/monster/demons/blizzard_demon.png",
+        "./custom18/monster/nonliving/crystal_golem.png",
+        "./custom18/monster/nonliving/crystal_guardian.png",
+        "./custom18/monster/nonliving/orb_of_ice.png",
+        "./custom18/monster/nonliving/orb_of_ice.png",
+        "./custom18/monster/dragons/ice_dragon_new.png",
+        "./custom18/monster/dragons/quicksilver_dragon_new.png",
+        "./custom1/monster/ice_beast.png",
+        "./custom1/monster/abyss/apocalypse_crab.png",
+        "./custom1/monster/abyss/apocalypse_crab.png",
+        "./custom1/Glace.png",
+        "./custom1/Macrocat.png",
+        "./custom1/Monster.png",
         
         
         
@@ -240,7 +240,7 @@ window.requestAnimFrame = (function(){
   // Attack logic
   var attack = false;
   var attackSprite = new Image();
-  attackSprite.src = "../custom1/Fire3.png";
+  attackSprite.src = "./custom1/Fire3.png";
   
   function attackEnemy() {
       enemies.forEach(function(enemy, index) {
@@ -329,7 +329,7 @@ window.requestAnimFrame = (function(){
   }
   var score = 0;
 
-  var backgroundMusic = new Audio('../audio2/Battle in the winter.mp3');
+  var backgroundMusic = new Audio('./audio2/Battle in the winter.mp3');
 
 // Play background music in a loop
 backgroundMusic.loop = true;

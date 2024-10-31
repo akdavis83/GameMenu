@@ -153,9 +153,9 @@ window.requestAnimFrame = (function(){
   };
   
   var tileImage = new Image();
-  tileImage.src = '../custom1/Grass Texture 1.jpg';
+  tileImage.src = './custom1/Grass Texture 1.jpg';
   var tileImage2 = new Image();
-  tileImage2.src = '../Minecraft/Wood.PNG';
+  tileImage2.src = './Minecraft/Wood.PNG';
   
   this.draw = function() {
       var img = Math.random() > 0.5 ? tileImage : tileImage2;  // Randomly choose a tile
@@ -187,33 +187,33 @@ window.requestAnimFrame = (function(){
       } else {
         var enemy = new ent();
         var enemyTypes = [
-          "../custom1/Bud.png",
-          "../custom1/Chomper.png",
-          "../custom1/Cub.png",
-          "../custom1/Cub.png",
-          "../custom1/Flux.png",
-          "../custom1/Fungus.png",
-          "../custom1/Gator.png",
-          "../custom1/Goo.png",
-          "../custom1/Goofball.png",
-          "../custom1/Harpy.png",
-          "../custom1/Hornet.png",
-          "../custom1/Husk.png",
-          "../custom1/Imp.png",
-          "../custom1/Peeper.png",
-          "../custom1/Possessed.png",
-          "../custom1/Possessed.png",
-          "../custom1/Rage.png",
-          "../custom1/Seeker.png",
-          "../custom1/Sevalecan.png",
-          "../custom1/Stomper.png",
-          "../custom1/Toad.png",
-          "../custom1/Treant.png",
-          "../custom1/Treant.png",
-          "../custom1/turtle.png",
-          "../custom1/Viper.png",
-          "../custom1/Vulture.png",
-          "../custom1/Wasp.png",
+          "./custom1/Bud.png",
+          "./custom1/Chomper.png",
+          "./custom1/Cub.png",
+          "./custom1/Cub.png",
+          "./custom1/Flux.png",
+          "./custom1/Fungus.png",
+          "./custom1/Gator.png",
+          "./custom1/Goo.png",
+          "./custom1/Goofball.png",
+          "./custom1/Harpy.png",
+          "./custom1/Hornet.png",
+          "./custom1/Husk.png",
+          "./custom1/Imp.png",
+          "./custom1/Peeper.png",
+          "./custom1/Possessed.png",
+          "./custom1/Possessed.png",
+          "./custom1/Rage.png",
+          "./custom1/Seeker.png",
+          "./custom1/Sevalecan.png",
+          "./custom1/Stomper.png",
+          "./custom1/Toad.png",
+          "./custom1/Treant.png",
+          "./custom1/Treant.png",
+          "./custom1/turtle.png",
+          "./custom1/Viper.png",
+          "./custom1/Vulture.png",
+          "./custom1/Wasp.png",
         ];
         var randomType = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
         enemy.sprite(randomType, 0, 0, 256, 256, x, y, 256, 256, 10);
@@ -225,7 +225,7 @@ window.requestAnimFrame = (function(){
   
   function createStationaryEnemy(x, y, health) {
       var enemy = new ent();
-      enemy.sprite("../custom1/Stump.png", 0, 0, 64, 64, x, y, 64, 64, 20);
+      enemy.sprite("./custom1/Stump.png", 0, 0, 64, 64, x, y, 64, 64, 20);
       enemy.load = true;
       enemy.health = 200000000000;
       enemy.isStationary = true;
@@ -287,7 +287,7 @@ window.requestAnimFrame = (function(){
   // Attack logic
   var attack = false;
   var attackSprite = new Image();
-  attackSprite.src = "../custom1/Whirlpool.png";
+  attackSprite.src = "./custom1/Whirlpool.png";
   
   function attackEnemy() {
       enemies.forEach(function(enemy, index) {
@@ -378,9 +378,8 @@ window.requestAnimFrame = (function(){
   
   
   // Load sound effects
-  var shootSound = new Audio('shoot.mp3');
-  var hitSound = new Audio('hit.mp3');
-  var backgroundMusic = new Audio('../misc/Dream Raid Pack/Dream Raid Part I.mp3');
+  
+  var backgroundMusic = new Audio('./misc/Dream Raid Pack/Dream Raid Part I.mp3');
   
   // Play background music in a loop
   backgroundMusic.loop = true;
@@ -388,10 +387,8 @@ window.requestAnimFrame = (function(){
   function attackEnemy() {
       enemies.forEach(function(enemy, index) {
           if (Math.abs(player.x - enemy.x) < 400 && Math.abs(player.y - enemy.y) < 400) {
-              shootSound.play();
               enemy.health -= playerStats.attack;
               if (enemy.health <= 0) {
-                  hitSound.play(); // Play hit sound
                   enemies.splice(index, 1); // Remove enemy if health <= 0
                   playerHealth = Math.min(playerHealth + 1000000000, 100000000000000000000000000000000000000);
                   playerStats.attack += 1000000000;

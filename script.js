@@ -354,8 +354,7 @@ var score = 0;
 
 
 // Load sound effects
-var shootSound = new Audio('shoot.mp3');
-var hitSound = new Audio('hit.mp3');
+
 var backgroundMusic = new Audio('./audio/awesomeness.wav');
 
 // Play background music in a loop

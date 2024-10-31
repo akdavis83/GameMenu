@@ -153,9 +153,9 @@ window.requestAnimFrame = (function(){
   };
   
   var tileImage = new Image();
-  tileImage.src = '../custom1/alienfloor2_diffuse.jpg';
+  tileImage.src = './custom1/alienfloor2_diffuse.jpg';
   var tileImage2 = new Image();
-  tileImage2.src = '../Minecraft/Wood.PNG';
+  tileImage2.src = './Minecraft/Wood.PNG';
   
   this.draw = function() {
       var img = Math.random() > 0.5 ? tileImage : tileImage2;  // Randomly choose a tile
@@ -188,10 +188,10 @@ window.requestAnimFrame = (function(){
   
     // Randomly choose an enemy sprite
     var enemyTypes = [
-        "../custom1/alien1.png",   // Example sprite 1
-        "../custom1/alien2.png",      // Example sprite 2
-        "../custom1/alien3.png",               // Example sprite 3
-        "../custom1/alien4.png",               // Example sprite 4
+        "./custom1/alien1.png",   // Example sprite 1
+        "./custom1/alien2.png",      // Example sprite 2
+        "./custom1/alien3.png",               // Example sprite 3
+        "./custom1/alien4.png",               // Example sprite 4
     ];
     var randomType = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
   
@@ -222,7 +222,7 @@ window.requestAnimFrame = (function(){
   // Attack logic
   var attack = false;
   var attackSprite = new Image();
-  attackSprite.src = "../custom1/09.png";
+  attackSprite.src = "./custom1/09.png";
   
   function attackEnemy() {
       enemies.forEach(function(enemy, index) {
@@ -311,7 +311,7 @@ window.requestAnimFrame = (function(){
   }
   var score = 0;
 
-  var backgroundMusic = new Audio('../audio2/Dark Descent.mp3');
+  var backgroundMusic = new Audio('./audio2/Dark Descent.mp3');
 
 // Play background music in a loop
 backgroundMusic.loop = true;

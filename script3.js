@@ -153,9 +153,9 @@ window.requestAnimFrame = (function(){
   };
   
   var tileImage = new Image();
-  tileImage.src = '../tileable5c.png';
+  tileImage.src = './tileable5c.png';
   var tileImage2 = new Image();
-  tileImage2.src = '../custom1/alienfloor2_diffuse.jpg';
+  tileImage2.src = './custom1/alienfloor2_diffuse.jpg';
   
   this.draw = function() {
       var img = Math.random() > 0.5 ? tileImage : tileImage2;  // Randomly choose a tile
@@ -188,10 +188,10 @@ window.requestAnimFrame = (function(){
   
     // Randomly choose an enemy sprite
     var enemyTypes = [
-        "../Biomech Dragon Splice.png",   // Example sprite 1
-        "../Biomech Dragon Splice.png",      // Example sprite 2
-        "../Biomech Dragon Splice.png" ,              // Example sprite 3
-        "../golem-walk.png"               // Example sprite 3
+        "./Biomech Dragon Splice.png",   // Example sprite 1
+        "./Biomech Dragon Splice.png",      // Example sprite 2
+        "./Biomech Dragon Splice.png" ,              // Example sprite 3
+        "./golem-walk.png"               // Example sprite 3
     ];
     var randomType = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
   
@@ -222,7 +222,7 @@ window.requestAnimFrame = (function(){
   // Attack logic
   var attack = false;
   var attackSprite = new Image();
-  attackSprite.src = "../teleporter/rune2.png";
+  attackSprite.src = "./teleporter/rune2.png";
   
   function attackEnemy() {
       enemies.forEach(function(enemy, index) {
@@ -316,7 +316,7 @@ window.requestAnimFrame = (function(){
   }
   var score = 0;
 
-  var backgroundMusic = new Audio('../audio/cave themeb4.ogg');
+  var backgroundMusic = new Audio('./audio/cave themeb4.ogg');
 
 // Play background music in a loop
 backgroundMusic.loop = true;

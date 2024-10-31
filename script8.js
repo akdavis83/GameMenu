@@ -153,9 +153,9 @@ window.requestAnimFrame = (function(){
   };
   
   var tileImage = new Image();
-  tileImage.src = '../custom1/volcano_floor.png';
+  tileImage.src = './custom1/volcano_floor.png';
   var tileImage2 = new Image();
-  tileImage2.src = '../custom1/fire2.jpg';
+  tileImage2.src = './custom1/fire2.jpg';
   
   this.draw = function() {
       var img = Math.random() > 0.5 ? tileImage : tileImage2;  // Randomly choose a tile
@@ -189,15 +189,15 @@ window.requestAnimFrame = (function(){
     // Randomly choose an enemy sprite
     var enemyTypes = [
         
-        "../custom1/Shadow.png",
+        "./custom1/Shadow.png",
         
-        "../custom1/Awoken.png",
-        "../custom1/darkness1.png",
-        "../custom1/DarkMan.png",
-        "../custom1/DarkTroll.png",
-        "../custom1/Devil.png",
-        "../custom1/Envy.png",
-        "../custom1/Fiend.png",
+        "./custom1/Awoken.png",
+        "./custom1/darkness1.png",
+        "./custom1/DarkMan.png",
+        "./custom1/DarkTroll.png",
+        "./custom1/Devil.png",
+        "./custom1/Envy.png",
+        "./custom1/Fiend.png",
         
         
     ];
@@ -230,7 +230,7 @@ window.requestAnimFrame = (function(){
   // Attack logic
   var attack = false;
   var attackSprite = new Image();
-  attackSprite.src = "../custom1/0005.png";
+  attackSprite.src = "./custom1/0005.png";
   
   function attackEnemy() {
       enemies.forEach(function(enemy, index) {
@@ -319,7 +319,7 @@ window.requestAnimFrame = (function(){
   }
   var score = 0;
 
-  var backgroundMusic = new Audio('../audio2/forest.ogg');
+  var backgroundMusic = new Audio('./audio2/forest.ogg');
 
 // Play background music in a loop
 backgroundMusic.loop = true;

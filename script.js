@@ -263,7 +263,7 @@ setInterval(function() {
 // Attack logic
 var attack = false;
 var attackSprite = new Image();
-attackSprite.src = "./Orbs/Water Orb3.png";
+attackSprite.src = "./custom1/Water Orb1.png";
 
 function attackEnemy() {
     enemies.forEach(function(enemy, index) {

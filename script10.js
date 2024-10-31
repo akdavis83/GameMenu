@@ -153,9 +153,9 @@ window.requestAnimFrame = (function(){
   };
   
   var tileImage = new Image();
-  tileImage.src = '../flagstone_floor_preview_0.png';
+  tileImage.src = './flagstone_floor_preview_0.png';
   var tileImage2 = new Image();
-  tileImage2.src = '../custom1/fire2.jpg';
+  tileImage2.src = './custom1/fire2.jpg';
   
   this.draw = function() {
       var img = Math.random() > 0.5 ? tileImage : tileImage2;  // Randomly choose a tile
@@ -189,18 +189,18 @@ window.requestAnimFrame = (function(){
     // Randomly choose an enemy sprite
     var enemyTypes = [
         
-        "../custom1/terrex.png",
-        "../threeformsPJ2.png",
-        "../custom1/min frames/minotaur-S-stand.png",
+        "./custom1/terrex.png",
+        "./threeformsPJ2.png",
+        "./custom1/min frames/minotaur-S-stand.png",
         
-        "../custom1/spritesheets/gnu-120x100.png",
-        "../custom1/spritesheets/mage-3-87x110.png",
-        
-        
-        "../custom1/ghost.png",
+        "./custom1/spritesheets/gnu-120x100.png",
+        "./custom1/spritesheets/mage-3-87x110.png",
         
         
-        "../custom1/terrex.png",
+        "./custom1/ghost.png",
+        
+        
+        "./custom1/terrex.png",
         
         
         
@@ -234,7 +234,7 @@ window.requestAnimFrame = (function(){
   // Attack logic
   var attack = false;
   var attackSprite = new Image();
-  attackSprite.src = "../custom1/010011.png";
+  attackSprite.src = "./custom1/010011.png";
   
   function attackEnemy() {
       enemies.forEach(function(enemy, index) {

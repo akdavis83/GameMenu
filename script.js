@@ -146,7 +146,7 @@ function checkEndGame() {
 
 // Create player
 var player = new ent();
-player.sprite("https://opengameart.org/sites/default/files/lpcmalegoldenarmorpreview.png", 0, 640, 64, 64, 100, 100, 62, 62, 10);
+player.sprite("https://opengameart.org/sites/default/files/lpcmalegoldenarmorpreview.png", 0, 640, 64, 64, 100, 100, 62, 62, 100);
 
 player.image.onload = function() {
     player.load = true;

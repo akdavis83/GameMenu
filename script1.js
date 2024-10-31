@@ -149,9 +149,9 @@ player.image.onload = function() {
 };
 
 var tileImage = new Image();
-tileImage.src = '../flagstone_floor_preview_0.png';
+tileImage.src = './flagstone_floor_preview_0.png';
 var tileImage2 = new Image();
-tileImage2.src = '../custom1/woodfloor_c.jpg';
+tileImage2.src = './custom1/woodfloor_c.jpg';
 
 this.draw = function() {
     var img = Math.random() > 0.5 ? tileImage : tileImage2;  // Randomly choose a tile
@@ -184,9 +184,9 @@ function createEnemy(x, y, health) {
 
   // Randomly choose an enemy sprite
   var enemyTypes = [
-      "../LPC imp/walk - sword shield.png",   // Example sprite 1
-      "../golem-walk.png",      // Example sprite 2
-      "../LPC imp/attack - pitchfork shield.png"               // Example sprite 3
+      "./LPC imp/walk - sword shield.png",   // Example sprite 1
+      "./golem-walk.png",      // Example sprite 2
+      "./LPC imp/attack - pitchfork shield.png"               // Example sprite 3
   ];
   var randomType = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
 
@@ -217,7 +217,7 @@ setInterval(function() {
 // Attack logic
 var attack = false;
 var attackSprite = new Image();
-attackSprite.src = "../Orbs/Water Orb3.png";
+attackSprite.src = "../custom1/Water Orb1.png";
 
 function attackEnemy() {
     enemies.forEach(function(enemy, index) {
@@ -312,7 +312,7 @@ var Map = function() {
 }
 var score = 0;
 
-var backgroundMusic = new Audio('../audio/awesomeness.wav');
+var backgroundMusic = new Audio('./audio/awesomeness.wav');
 
 // Play background music in a loop
 backgroundMusic.loop = true;
